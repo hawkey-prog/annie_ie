@@ -14,9 +14,18 @@
         }
         
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat fixed;
-            color: #333;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)),
+                url('images/background-hd.jpg') center 25% no-repeat fixed;
+            
+            background-size: cover;
+            background-attachment: fixed;
+            
+            /* Улучшение производительности */
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -28,6 +37,11 @@
             max-width: 400px;
             width: 100%;
             margin: 0 auto;
+        }
+        .content-block {
+            background-color: rgba(255, 255, 255, 0.96); /* Было 0.95 */
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
         }
         
         .profile {
