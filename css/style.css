@@ -21,200 +21,291 @@ body {
     padding: 0 15px;
 }
 
-/* Шапка с фото */
+/* Шапка с фото (полная высота фото) */
 .header {
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
         url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    padding: 30px 0 40px 0;
+    padding: 40px 0 60px 0;
     text-align: center;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
+.header-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Градиентный переход от фото к черному */
 .header::after {
     content: '';
     position: absolute;
-    bottom: -20px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, transparent, #0a0a0a);
+    height: 150px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(10, 10, 10, 0.3) 20%,
+        rgba(10, 10, 10, 0.6) 40%,
+        rgba(10, 10, 10, 0.8) 60%,
+        #0a0a0a 100%);
     z-index: 1;
 }
 
 /* Основной контент (черный фон) */
 .main-content {
     background-color: #0a0a0a;
-    padding: 20px 0 40px 0;
+    padding: 0 0 40px 0;
     flex: 1;
     position: relative;
     z-index: 2;
+    margin-top: -50px;
 }
 
-/* Подвал с фото */
-.footer-section {
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
-        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    padding: 40px 0 30px 0;
-    text-align: center;
+/* Секция "Почему именно я?" - начало черного фона */
+.section-dark {
+    background-color: #0a0a0a;
+    padding: 50px 0 40px 0;
     position: relative;
 }
 
-.footer-section::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to top, transparent, #0a0a0a);
-    z-index: 1;
+/* Градиентный переход обратно к фото */
+.section-photo {
+    background: 
+        linear-gradient(to bottom, 
+            #0a0a0a 0%,
+            rgba(10, 10, 10, 0.9) 10%,
+            rgba(10, 10, 10, 0.7) 30%,
+            rgba(10, 10, 10, 0.4) 60%,
+            rgba(10, 10, 10, 0.1) 90%,
+            transparent 100%),
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
+    padding: 60px 0 80px 0;
+    position: relative;
+    margin-top: 40px;
+}
+
+/* Подвал на полном фото */
+.footer-section {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
+    padding: 40px 0 50px 0;
+    text-align: center;
+    position: relative;
 }
 
 /* Профиль */
 .profile {
     text-align: center;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 40px;
 }
 
 .avatar {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.3);
+    border: 6px solid rgba(255, 255, 255, 0.25);
     object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
     background-color: #ddd;
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
 }
 
 .name {
     color: white;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(214, 51, 132, 0.3);
+    letter-spacing: 1px;
 }
 
 .bio {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
-    max-width: 320px;
-    margin: 0 auto 20px;
-    line-height: 1.6;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 17px;
+    max-width: 350px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    padding: 0 10px;
 }
 
-/* Блоки контента */
-.content-block {
-    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        0 1px 0 rgba(255, 255, 255, 0.05) inset,
-        0 0 0 1px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
-
-.content-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.7),
-        0 1px 0 rgba(255, 255, 255, 0.05) inset,
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-.block-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.block-title i {
-    margin-right: 12px;
-    color: #d63384;
-    font-size: 22px;
-}
-
-/* Кнопки */
+/* Кнопки на фоне фото */
 .action-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 18px;
+    margin-bottom: 40px;
 }
 
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 16px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 17px;
-    transition: all 0.3s;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    border: 2px solid transparent;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 2px 0 rgba(255, 255, 255, 0.1) inset;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #d63384, #b02a6d);
+    background: linear-gradient(145deg, #d63384, #9c1f5c);
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.4);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(214, 51, 132, 0.5),
+        0 2px 0 rgba(255, 255, 255, 0.1) inset;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(230, 230, 230, 0.9));
+    color: #222;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.2);
-    background: linear-gradient(135deg, #333, #222);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 2px 0 rgba(255, 255, 255, 0.1) inset;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: linear-gradient(145deg, white, #f0f0f0);
 }
 
 .btn-telegram {
-    background: linear-gradient(135deg, #0088cc, #006699);
+    background: linear-gradient(145deg, #0088cc, #005580);
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn-telegram:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(0, 136, 204, 0.5),
+        0 2px 0 rgba(255, 255, 255, 0.1) inset;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn i {
-    margin-right: 12px;
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+/* Блоки контента */
+.content-block {
+    background: linear-gradient(145deg, #151515, #0c0c0c);
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.7),
+        0 2px 0 rgba(255, 255, 255, 0.05) inset,
+        0 0 0 2px rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(214, 51, 132, 0.03) 50%, transparent 70%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.content-block:hover::before {
+    opacity: 1;
+}
+
+.content-block:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.9),
+        0 2px 0 rgba(255, 255, 255, 0.05) inset,
+        0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.block-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    color: #fff;
     font-size: 22px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.block-title i {
+    margin-right: 15px;
+    color: #d63384;
+    font-size: 26px;
+    text-shadow: 0 0 10px rgba(214, 51, 132, 0.5);
 }
 
 /* Информационные элементы */
 .info-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
 }
 
 .info-item:last-child {
@@ -222,128 +313,197 @@ body {
 }
 
 .info-icon {
-    min-width: 35px;
+    min-width: 40px;
     color: #d63384;
     margin-top: 3px;
-    font-size: 18px;
+    font-size: 22px;
+    text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
 }
 
 .info-text {
-    color: #ddd;
-    line-height: 1.6;
-    font-size: 15px;
+    color: #e0e0e0;
+    line-height: 1.7;
+    font-size: 16px;
 }
 
 .info-text strong {
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .info-text a {
     color: #d63384;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    font-weight: 600;
+    position: relative;
+}
+
+.info-text a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d63384;
+    transition: width 0.3s;
 }
 
 .info-text a:hover {
     color: #ff4da6;
-    text-decoration: underline;
+}
+
+.info-text a:hover::after {
+    width: 100%;
 }
 
 /* Галерея */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .gallery-item {
     width: 100%;
-    height: 110px;
-    border-radius: 10px;
+    height: 120px;
+    border-radius: 12px;
     object-fit: cover;
-    background-color: #222;
+    background: linear-gradient(145deg, #222, #1a1a1a);
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.gallery-item:hover::before {
+    transform: translateX(100%);
 }
 
 .gallery-item:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    z-index: 10;
 }
 
 /* Соцсети */
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-top: 35px;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .social-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    background: linear-gradient(145deg, #1f1f1f, #151515);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 24px;
+    font-size: 28px;
     text-decoration: none;
-    transition: all 0.3s;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
 }
 
 .social-icon:hover {
-    transform: scale(1.15) translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.instagram { 
-    background: linear-gradient(135deg, #E4405F, #C13584);
-    color: white !important;
-}
-
-.vk { 
-    background: linear-gradient(135deg, #4C75A3, #3a5a80);
-    color: white !important;
+    transform: scale(1.2) translateY(-5px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .telegram { 
-    background: linear-gradient(135deg, #0088cc, #006699);
-    color: white !important;
+    background: linear-gradient(145deg, #0088cc, #005580);
 }
 
 /* Текст в подвале */
 .footer-text {
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    line-height: 1.8;
     position: relative;
     z-index: 2;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .footer-text p {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .footer-text a {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.footer-text a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
 }
 
 .footer-text a:hover {
     color: white;
-    text-decoration: underline;
+}
+
+.footer-text a:hover::after {
+    width: 100%;
 }
 
 /* Список цен */
@@ -353,30 +513,53 @@ body {
 }
 
 .price-item {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
 }
 
 .price-item:last-child {
     border-bottom: none;
 }
 
+.price-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #d63384;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s, left 0.3s;
+}
+
+.price-item:hover::before {
+    opacity: 1;
+    left: -5px;
+}
+
 .price-item ul {
-    padding-left: 20px;
-    margin-top: 8px;
+    padding-left: 25px;
+    margin-top: 10px;
 }
 
 .price-item li {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #aaa;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #bbb;
     position: relative;
+    padding-left: 15px;
 }
 
 .price-item li::before {
-    content: "•";
+    content: '›';
+    position: absolute;
+    left: 0;
     color: #d63384;
-    margin-right: 8px;
+    font-weight: bold;
 }
 
 /* Адаптивность */
@@ -386,42 +569,83 @@ body {
     }
     
     .header {
-        padding: 25px 0 35px 0;
-    }
-    
-    .main-content {
-        padding: 15px 0 30px 0;
-    }
-    
-    .footer-section {
-        padding: 35px 0 25px 0;
+        padding: 30px 0 50px 0;
+        min-height: 90vh;
     }
     
     .avatar {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
     }
     
     .name {
-        font-size: 28px;
+        font-size: 30px;
+    }
+    
+    .bio {
+        font-size: 16px;
+        max-width: 300px;
     }
     
     .btn {
-        padding: 16px;
+        padding: 18px;
         font-size: 16px;
     }
     
     .content-block {
-        padding: 20px;
-        margin-bottom: 20px;
+        padding: 22px;
+        margin-bottom: 25px;
+        border-radius: 20px;
     }
     
     .gallery-item {
-        height: 95px;
+        height: 100px;
+    }
+    
+    .social-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+    
+    .section-photo {
+        padding: 50px 0 70px 0;
     }
 }
 
-/* Плавный скролл */
+@media (max-width: 380px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .gallery-item {
+        height: 110px;
+    }
+}
+
+/* Плавный скролл и анимации */
 html {
     scroll-behavior: smooth;
 }
+
+/* Анимация появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile, .action-buttons, .content-block {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.content-block:nth-child(1) { animation-delay: 0.1s; }
+.content-block:nth-child(2) { animation-delay: 0.2s; }
+.content-block:nth-child(3) { animation-delay: 0.3s; }
+.content-block:nth-child(4) { animation-delay: 0.4s; }
