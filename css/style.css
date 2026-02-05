@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* Общие стили */
+body {
+    background-color: #0a0a0a;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Шапка с фото */
+.header {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
+    padding: 30px 0 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #0a0a0a);
+    z-index: 1;
+}
+
+/* Основной контент (черный фон) */
+.main-content {
+    background-color: #0a0a0a;
+    padding: 20px 0 40px 0;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* Подвал с фото */
+.footer-section {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+        url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
+    padding: 40px 0 30px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, transparent, #0a0a0a);
+    z-index: 1;
+}
+
+/* Профиль */
+.profile {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    background-color: #ddd;
+}
+
+.name {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.bio {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    max-width: 320px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Блоки контента */
+.content-block {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(255, 255, 255, 0.05) inset,
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.content-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.7),
+        0 1px 0 rgba(255, 255, 255, 0.05) inset,
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.block-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.block-title i {
+    margin-right: 12px;
+    color: #d63384;
+    font-size: 22px;
+}
+
+/* Кнопки */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all 0.3s;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d63384, #b02a6d);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #333, #222);
+}
+
+.btn-telegram {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    color: white;
+}
+
+.btn-telegram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn i {
+    margin-right: 12px;
+    font-size: 22px;
+}
+
+/* Информационные элементы */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    min-width: 35px;
+    color: #d63384;
+    margin-top: 3px;
+    font-size: 18px;
+}
+
+.info-text {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.info-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.info-text a {
+    color: #d63384;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-text a:hover {
+    color: #ff4da6;
+    text-decoration: underline;
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 110px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #222;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Соцсети */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.instagram { 
+    background: linear-gradient(135deg, #E4405F, #C13584);
+    color: white !important;
+}
+
+.vk { 
+    background: linear-gradient(135deg, #4C75A3, #3a5a80);
+    color: white !important;
+}
+
+.telegram { 
+    background: linear-gradient(135deg, #0088cc, #006699);
+    color: white !important;
+}
+
+/* Текст в подвале */
+.footer-text {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-text p {
+    margin-bottom: 8px;
+}
+
+.footer-text a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-text a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Список цен */
+.price-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.price-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-item ul {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.price-item li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #aaa;
+    position: relative;
+}
+
+.price-item li::before {
+    content: "•";
+    color: #d63384;
+    margin-right: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .header {
+        padding: 25px 0 35px 0;
+    }
+    
+    .main-content {
+        padding: 15px 0 30px 0;
+    }
+    
+    .footer-section {
+        padding: 35px 0 25px 0;
+    }
+    
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .name {
+        font-size: 28px;
+    }
+    
+    .btn {
+        padding: 16px;
+        font-size: 16px;
+    }
+    
+    .content-block {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .gallery-item {
+        height: 95px;
+    }
+}
+
+/* Плавный скролл */
+html {
+    scroll-behavior: smooth;
+}
