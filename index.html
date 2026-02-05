@@ -14,7 +14,6 @@
         }
         
         body {
-            /* Основной темный градиент */
             background: linear-gradient(
                 135deg,
                 #0c0c0c 0%,
@@ -24,18 +23,16 @@
                 #0c0c0c 100%
             );
             
-            /* ФОН: используйте ОДИН из вариантов: */
             
-            /* Вариант A: Локальный файл (если загрузили в images/) */
+            /*  Локальный файл */
             /* background-image: url('images/background.jpg'); */
             
-            /* Вариант B: Внешняя ссылка (как у вас сейчас) */
             background-image: url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg');
             
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
-            opacity: 0.15; /* Увеличил прозрачность для лучшего вида */
+            opacity: 0.15; 
             background-attachment: fixed;
             
             position: relative;
@@ -119,7 +116,6 @@
             line-height: 1.5;
         }
         
-        /* ОДИН блок .content-block вместо двух! */
         .content-block {
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(8px);
@@ -316,14 +312,12 @@
                 font-size: 16px;
             }
             
-            /* Уменьшаем градиенты на мобильных */
             body::before,
             body::after {
                 transform: scale(0.7);
             }
         }
         
-        /* Стили для информации о ценах */
         .price-list {
             list-style: none;
             padding-left: 0;
@@ -537,15 +531,12 @@
             });
         });
         
-        // Увеличение фото при клике
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', function() {
-                // Открываем фото в новой вкладке для увеличения
                 window.open(this.src, '_blank');
             });
         });
         
-        // Добавляем год автоматически
         document.addEventListener('DOMContentLoaded', function() {
             const yearElement = document.querySelector('.footer p');
             if (yearElement && yearElement.textContent.includes('2024')) {
