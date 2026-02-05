@@ -24,9 +24,9 @@ body {
 /* Шапка с фото (полная высота фото) */
 .header {
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)),
         url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    padding: 40px 0 60px 0;
+    padding: 40px 0 80px 0;
     text-align: center;
     position: relative;
     min-height: 100vh;
@@ -40,19 +40,20 @@ body {
     width: 100%;
 }
 
-/* Градиентный переход от фото к черному */
+/* ПЛАВНЫЙ переход от фото к черному (убрал видимую линию) */
 .header::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 150px;
+    height: 200px; /* Увеличил высоту для более плавного перехода */
     background: linear-gradient(to bottom, 
         transparent 0%, 
-        rgba(10, 10, 10, 0.3) 20%,
-        rgba(10, 10, 10, 0.6) 40%,
-        rgba(10, 10, 10, 0.8) 60%,
+        rgba(10, 10, 10, 0.1) 15%,
+        rgba(10, 10, 10, 0.25) 30%,
+        rgba(10, 10, 10, 0.45) 50%,
+        rgba(10, 10, 10, 0.7) 75%,
         #0a0a0a 100%);
     z-index: 1;
 }
@@ -60,43 +61,53 @@ body {
 /* Основной контент (черный фон) */
 .main-content {
     background-color: #0a0a0a;
-    padding: 0 0 40px 0;
+    padding: 0;
     flex: 1;
     position: relative;
     z-index: 2;
-    margin-top: -50px;
+    margin-top: -100px; /* Увеличил для плавного перехода */
 }
 
 /* Секция "Почему именно я?" - начало черного фона */
 .section-dark {
     background-color: #0a0a0a;
-    padding: 50px 0 40px 0;
+    padding: 100px 0 40px 0; /* Увеличил верхний отступ */
     position: relative;
 }
 
-/* Градиентный переход обратно к фото */
-.section-photo {
+/* Контактная секция - возврат к фото */
+.contacts-section {
+    padding: 60px 0 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Градиентный фон для контактов (вертикальный градиент) */
+.contacts-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: 
         linear-gradient(to bottom, 
-            #0a0a0a 0%,
-            rgba(10, 10, 10, 0.9) 10%,
-            rgba(10, 10, 10, 0.7) 30%,
-            rgba(10, 10, 10, 0.4) 60%,
-            rgba(10, 10, 10, 0.1) 90%,
-            transparent 100%),
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 20%,
+            rgba(0, 0, 0, 0.4) 40%,
+            rgba(0, 0, 0, 0.6) 60%,
+            rgba(0, 0, 0, 0.8) 80%
+        ),
         url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    padding: 60px 0 80px 0;
-    position: relative;
-    margin-top: 40px;
+    z-index: -1;
 }
 
-/* Подвал на полном фото */
+/* Подвал на том же фото (без дублирования) */
 .footer-section {
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
         url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    padding: 40px 0 50px 0;
+    padding: 50px 0 60px 0;
     text-align: center;
     position: relative;
 }
@@ -569,8 +580,12 @@ body {
     }
     
     .header {
-        padding: 30px 0 50px 0;
+        padding: 30px 0 60px 0;
         min-height: 90vh;
+    }
+    
+    .header::after {
+        height: 150px;
     }
     
     .avatar {
@@ -608,8 +623,12 @@ body {
         font-size: 25px;
     }
     
-    .section-photo {
-        padding: 50px 0 70px 0;
+    .section-dark {
+        padding: 80px 0 40px 0;
+    }
+    
+    .contacts-section {
+        padding: 50px 0 80px 0;
     }
 }
 
