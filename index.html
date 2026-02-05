@@ -43,7 +43,7 @@
     <!-- Основной контент -->
     <main class="main-content">
         <div class="container">
-            <!-- Секция "Почему именно я?" (начало перехода к черному) -->
+            <!-- Секция "Почему именно я?" (плавный переход к черному) -->
             <div class="section-dark">
                 <div class="content-block">
                     <div class="block-title">
@@ -119,9 +119,9 @@
                 </div>
             </div>
             
-            <!-- Секция "Контакты" (градиент обратно к фото) -->
-            <div class="section-photo">
-                <!-- Контактная информация (появляется на градиенте) -->
+            <!-- Секция "Контакты" (возврат к фото) -->
+            <div class="contacts-section">
+                <!-- Контактная информация -->
                 <div class="content-block">
                     <div class="block-title">
                         <i class="fas fa-info-circle"></i> КОНТАКТЫ И ИНФОРМАЦИЯ
@@ -157,7 +157,7 @@
                     </div>
                 </div>
                 
-                <!-- Соцсети (уже на фоне фото) -->
+                <!-- Соцсети -->
                 <div class="social-links">
                     <a href="https://t.me/annie_ie" class="social-icon" title="Записаться в Telegram">
                         <i class="fas fa-calendar-check"></i>
@@ -171,7 +171,7 @@
         </div>
     </main>
 
-    <!-- Подвал (полное фото) -->
+    <!-- Подвал (то же фото продолжается) -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-text">
@@ -216,15 +216,6 @@
             const yearElement = document.getElementById('current-year');
             if (yearElement) {
                 yearElement.textContent = new Date().getFullYear();
-            }
-        });
-        
-        // Параллакс эффект для шапки
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const header = document.querySelector('.header');
-            if (header) {
-                header.style.backgroundPosition = `center ${scrolled * 0.5}px`;
             }
         });
     </script>
