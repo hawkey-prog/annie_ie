@@ -22,8 +22,8 @@
                     
                     <!-- Кнопки -->
                     <div class="action-buttons">
-                        <a href="#запись" class="btn btn-primary">
-                            <i class="far fa-calendar-check"></i> ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
+                        <a href="https://t.me/annie_ie" class="btn btn-primary" target="_blank">
+                            <i class="far fa-calendar-check"></i> ЗАПИСАТЬСЯ В TELEGRAM
                         </a>
                         
                         <a href="#портфолио" class="btn btn-secondary" id="portfolio-btn">
@@ -34,7 +34,7 @@
                             <i class="far fa-money-bill-alt"></i> УЗНАТЬ ЦЕНЫ
                         </a>
                         
-                        <a href="https://t.me/banyatrash" class="btn btn-telegram">
+                        <a href="https://t.me/banyatrash" class="btn btn-telegram" target="_blank">
                             <i class="fab fa-telegram"></i> Telegram-канал
                         </a>
                     </div>
@@ -46,39 +46,6 @@
     <!-- Основной контент -->
     <main class="main-content">
         <div class="container">
-            <!-- Блок онлайн-записи -->
-            <div class="content-block" id="запись">
-                <div class="block-title">
-                    <i class="far fa-calendar-check"></i> ОНЛАЙН-ЗАПИСЬ
-                </div>
-                
-                <p style="color: rgba(255,255,255,0.9); margin-bottom: 15px; line-height: 1.5;">
-                    Выберите удобную дату и время для консультации. После записи я свяжусь с вами для уточнения деталей.
-                </p>
-                
-                <!-- Google Calendar Appointment Scheduling -->
-                <div class="calendar-embed">
-                    <iframe 
-                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3X1oDCOCOy-2vIrlJJyCtHf5O_nR77nGG0Ju5QyKNHOcTtID_AIpHmCm39bVazPAJ0LZCZrV75?gv=true" 
-                        style="border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;" 
-                        width="100%" 
-                        height="600" 
-                        frameborder="0">
-                    </iframe>
-                </div>
-                
-                <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 20px;">
-                    <div style="text-align: center;">
-                        <div style="width: 12px; height: 12px; background: #d63384; border-radius: 50%; margin: 0 auto 5px;"></div>
-                        <span style="color: rgba(255,255,255,0.7); font-size: 12px;">Доступное время</span>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="width: 12px; height: 12px; background: #666; border-radius: 50%; margin: 0 auto 5px;"></div>
-                        <span style="color: rgba(255,255,255,0.7); font-size: 12px;">Занято</span>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Почему именно я? -->
             <div class="content-block">
                 <div class="block-title">
@@ -189,13 +156,56 @@
                 </div>
             </div>
             
+            <!-- Простая инструкция записи (в конце) -->
+            <div class="content-block" style="text-align: center;">
+                <div class="block-title">
+                    <i class="fas fa-clipboard-check"></i> КАК ЗАПИСАТЬСЯ?
+                </div>
+                
+                <div class="booking-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <strong>Напишите мне в Telegram</strong>
+                        Нажмите кнопку "Записаться в Telegram" выше или напишите на @annie_ie
+                    </div>
+                </div>
+                
+                <div class="booking-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <strong>Обсудим детали</strong>
+                        Расскажите мне свою идею, предпочтительное место и размер татуировки
+                    </div>
+                </div>
+                
+                <div class="booking-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <strong>Согласуем время</strong>
+                        Я подберу удобное для вас время и согласую все детали встречи
+                    </div>
+                </div>
+                
+                <div class="booking-step" style="border-left-color: #25D366; margin-bottom: 0;">
+                    <div class="step-number" style="background: #25D366;">4</div>
+                    <div class="step-text">
+                        <strong>Встречаемся!</strong>
+                        Приходите в назначенное время, и мы сделаем отличную татуировку!
+                    </div>
+                </div>
+                
+                <a href="https://t.me/annie_ie" class="btn btn-primary" style="margin-top: 25px;" target="_blank">
+                    <i class="fab fa-telegram"></i> НАПИСАТЬ В TELEGRAM
+                </a>
+            </div>
+            
             <!-- Соцсети -->
             <div class="social-links">
-                <a href="#запись" class="social-icon" title="Записаться на консультацию">
+                <a href="https://t.me/annie_ie" class="social-icon" title="Записаться в Telegram" target="_blank">
                     <i class="fas fa-calendar-check"></i>
                 </a>
                 
-                <a href="https://t.me/banyatrash" class="social-icon telegram" title="Telegram-канал">
+                <a href="https://t.me/banyatrash" class="social-icon telegram" title="Telegram-канал" target="_blank">
                     <i class="fab fa-telegram"></i>
                 </a>
             </div>
@@ -208,9 +218,9 @@
             <div class="footer-text">
                 <p>© <span id="current-year">2024</span> Аня. Тату-мастер.</p>
                 <p>Запись по телефону: <a href="tel:+79188064037">8 (918) 806-40-37</a></p>
-                <p>Telegram для записи: <a href="https://t.me/annie_ie">@annie_ie</a></p>
+                <p>Telegram для записи: <a href="https://t.me/annie_ie" target="_blank">@annie_ie</a></p>
                 <p style="font-size: 13px; opacity: 0.8; margin-top: 10px;">
-                    Telegram-канал: <a href="https://t.me/banyatrash">@banyatrash</a>
+                    Telegram-канал: <a href="https://t.me/banyatrash" target="_blank">@banyatrash</a>
                 </p>
             </div>
         </div>
