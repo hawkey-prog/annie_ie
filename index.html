@@ -184,4 +184,94 @@
                         <strong>Обсудим детали</strong>
                         Расскажите мне свою идею, предпочтительное место и размер татуировки
                     </div>
-                </
+                </div>
+                
+                <div class="booking-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <strong>Согласуем время</strong>
+                        Я подберу удобное для вас время и согласую все детали встречи
+                    </div>
+                </div>
+                
+                <div class="booking-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <strong>Встречаемся!</strong>
+                        Приходите в назначенное время, и мы сделаем отличную татуировку!
+                    </div>
+                </div>
+                
+                <a href="https://t.me/annie_ie" class="booking-btn" target="_blank">
+                    <i class="fab fa-telegram"></i> НАПИСАТЬ В TELEGRAM
+                </a>
+            </div>
+            
+            <!-- Соцсети -->
+            <div class="social-links">
+                <a href="https://t.me/annie_ie" class="social-icon" title="Записаться в Telegram" target="_blank">
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+                
+                <a href="https://t.me/banyatrash" class="social-icon telegram" title="Telegram-канал" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-text">
+                <p>© <span id="current-year">2024</span> Аня. Тату-мастер.</p>
+                <p>Запись по телефону: <a href="tel:+79188064037">8 (918) 806-40-37</a></p>
+                <p>Telegram для записи: <a href="https://t.me/annie_ie" target="_blank">@annie_ie</a></p>
+                <p style="font-size: 13px; opacity: 0.8; margin-top: 10px;">
+                    Telegram-канал: <a href="https://t.me/banyatrash" target="_blank">@banyatrash</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Исправленный скроллинг с учетом фиксированных элементов
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Учитываем высоту шапки и отступы
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Увеличение фото при клике
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                window.open(this.src, '_blank');
+            });
+        });
+        
+        // Автоматическое обновление года
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
