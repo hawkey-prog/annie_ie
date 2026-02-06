@@ -5,18 +5,18 @@
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
-/* Основной фон */
+/* Основной фон - фото поверх чёрного */
 body {
-    background-color: #000000; /* Абсолютно чёрный */
+    background-color: #000000;
     color: #333;
     min-height: 100vh;
     position: relative;
 }
 
-/* Фото фона поверх чёрного (50% прозрачности) */
+/* Фото фона (50% прозрачности) - ТОЛЬКО fixed для основного контента */
 body::before {
     content: '';
-    position: fixed;
+    position: fixed; /* Оставляем fixed для основного скролла */
     top: 0;
     left: 0;
     width: 100%;
@@ -24,7 +24,7 @@ body::before {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
         url('https://ltdfoto.ru/images/2026/02/05/FON_1.jpg') center/cover no-repeat;
-    opacity: 0.5; /* 50% видимости */
+    opacity: 0.5;
     z-index: 0;
     pointer-events: none;
 }
@@ -58,7 +58,7 @@ body::before {
 
 /* Полупрозрачная плашка для профиля */
 .profile-card {
-    background: rgba(15, 15, 15, 0.85); /* Тёмная полупрозрачная */
+    background: rgba(15, 15, 15, 0.85);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 20px;
@@ -236,7 +236,7 @@ body::before {
 
 /* Основной контент */
 .main-content {
-    padding: 0 0 50px 0;
+    padding: 0 0 20px 0;
     position: relative;
     z-index: 1;
 }
@@ -393,13 +393,13 @@ body::before {
     background: linear-gradient(135deg, #0088cc, #006699);
 }
 
-/* Подвал */
+/* Подвал - УБРАЛ border-top и сделал фон таким же как у body */
 .footer-section {
     padding: 40px 0 50px 0;
     text-align: center;
     position: relative;
     z-index: 1;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Убрал border-top: 1px solid rgba(255, 255, 255, 0.05); */
 }
 
 .footer-text {
@@ -451,6 +451,38 @@ body::before {
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* Стили для календаря записи */
+.calendar-embed {
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивность для календаря */
+@media (max-width: 480px) {
+    .calendar-embed {
+        padding: 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        border-radius: 10px;
+    }
+    
+    .calendar-embed iframe {
+        height: 500px !important;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 380px) {
+    .calendar-embed iframe {
+        height: 450px !important;
+    }
+}
+
 /* Адаптивность для телефонов */
 @media (max-width: 768px) {
     /* Фон фото делаем более заметным на телефонах */
@@ -472,6 +504,11 @@ body::before {
         background: rgba(20, 20, 20, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+    }
+    
+    .calendar-embed iframe {
+        height: 550px !important;
+        min-height: 80vh;
     }
 }
 
