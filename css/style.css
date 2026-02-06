@@ -13,10 +13,10 @@ body {
     position: relative;
 }
 
-/* Фото фона (50% прозрачности) - ТОЛЬКО fixed для основного контента */
+/* Фото фона (50% прозрачности) */
 body::before {
     content: '';
-    position: fixed; /* Оставляем fixed для основного скролла */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -393,13 +393,12 @@ body::before {
     background: linear-gradient(135deg, #0088cc, #006699);
 }
 
-/* Подвал - УБРАЛ border-top и сделал фон таким же как у body */
+/* Подвал */
 .footer-section {
     padding: 40px 0 50px 0;
     text-align: center;
     position: relative;
     z-index: 1;
-    /* Убрал border-top: 1px solid rgba(255, 255, 255, 0.05); */
 }
 
 .footer-text {
@@ -451,36 +450,52 @@ body::before {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Стили для календаря записи */
-.calendar-embed {
-    background: rgba(25, 25, 25, 0.8);
+/* Простой блок записи (если оставим) */
+.booking-simple {
+    background: rgba(25, 25, 25, 0.9);
     backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 15px;
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-/* Адаптивность для календаря */
-@media (max-width: 480px) {
-    .calendar-embed {
-        padding: 10px;
-        margin-left: -10px;
-        margin-right: -10px;
-        border-radius: 10px;
-    }
-    
-    .calendar-embed iframe {
-        height: 500px !important;
-    }
+.booking-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(40, 40, 40, 0.6);
+    border-radius: 12px;
+    border-left: 4px solid #d63384;
 }
 
-/* Для очень маленьких экранов */
-@media (max-width: 380px) {
-    .calendar-embed iframe {
-        height: 450px !important;
-    }
+.step-number {
+    width: 35px;
+    height: 35px;
+    background: #d63384;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    color: rgba(255, 255, 255, 0.95);
+    text-align: left;
+    flex-grow: 1;
+}
+
+.step-text strong {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Адаптивность для телефонов */
@@ -504,11 +519,6 @@ body::before {
         background: rgba(20, 20, 20, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-    }
-    
-    .calendar-embed iframe {
-        height: 550px !important;
-        min-height: 80vh;
     }
 }
 
