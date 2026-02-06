@@ -627,6 +627,28 @@ body::before {
     text-align: center;
 }
 
+/* Стили для ссылки "записаться на консультацию" */
+.consultation-link-container {
+    display: block;
+    margin-top: 8px;
+}
+
+.consultation-link {
+    color: #d63384; /* Розовый цвет */
+    text-decoration: underline;
+    font-size: 15px; /* Такой же размер как у "Точную стоимость обсудим на консультации!" */
+    font-style: italic; /* Такой же курсив */
+    font-weight: normal; /* Обычный вес шрифта */
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.consultation-link:hover {
+    color: #ff4da6; /* Более яркий розовый при наведении */
+    text-decoration: underline;
+}
+
 .telegram-consultation-btn {
     display: inline-flex;
     align-items: center;
